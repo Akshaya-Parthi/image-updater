@@ -6,12 +6,16 @@ metadata:
   annotations:
     argocd-image-updater.argoproj.io/image-list: akshayaclops/nginx:~v0.1
     argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/image-list: nginx=myregistry/nginx
+    argocd-image-updater.argoproj.io/nginx.update-strategy: latest
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/write-back-target: kustomization
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: ssh://git@github.com/Akshaya-Parthi/image-updater.git
+    repoURL: https://github.com/Akshaya-Parthi/image-updater
     targetRevision: main
     path: my-app
   destination:
