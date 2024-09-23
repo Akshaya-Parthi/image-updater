@@ -19,6 +19,8 @@ spec:
       labels:
         app: nginx
     spec:
+      imagePullSecrets:
+      - name: dockerhub-secret
       containers:
       - name: nginx
         image: akshayaclops/nginx:v0.1.0
